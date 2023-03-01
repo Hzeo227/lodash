@@ -45,10 +45,13 @@ function memoize(func, resolver) {
     throw new TypeError('Expected a function')
   }
   const memoized = function(...args) {
+    // memoize#hzeo
+    // key 取值：若有resolver，则是resolver的返回值，若无，则是fun的第一个参数
     const key = resolver ? resolver.apply(this, args) : args[0]
     const cache = memoized.cache
 
     if (cache.has(key)) {
+      console.log("根据key获取值: ", key, cache.get(key))
       return cache.get(key)
     }
     const result = func.apply(this, args)

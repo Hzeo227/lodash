@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>test-memoize</title>
+  </head>
+  <body>
+    <script type="module">
+      import memoize from "../../memoize.js";
+      const l = memoize(function add(a, b) {
+        return a + b;
+      });
+      l(100, 200);
+      console.log(l(200, 100));
+    </script>
+  </body>
+</html>
